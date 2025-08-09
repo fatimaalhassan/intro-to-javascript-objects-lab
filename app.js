@@ -25,12 +25,7 @@ console.log(pokemon[58]); // "Growlithe"
 
 console.log(game)
 
-const game ={
-  party: [],
-  gyms: [],
-  items: [],
-    
-};
+
 
 /*
 Exercise 3
@@ -53,7 +48,7 @@ Exercise 4
 
 Solve Exercise 4 here:
 */
-game.party.push(pokemon[25])
+game.party.push(pokemon[24])
 
 /*
 Exercise 5
@@ -76,12 +71,14 @@ Exercise 6
 Solve Exercise 6 here:
 */
 
-gayms.forEach(function(gym)
-{
-  if (gym.difficulty < 3) {
-    
+// forEach syntax: 
+game.gyms.forEach((gym) => {
+  // use an if statement to check if the difficulty of the current gym is below 3
+  if(gym.difficulty < 3){
+    // if so, set that gym's completed property to true
+    gym.completed = true
   }
-});
+})
 
 
 /*
@@ -101,11 +98,7 @@ More Hints: The existing starter Pokemon will be *replaced* in your party with t
 Solve Exercise 7 here:
 */
 
-game.party.splice(0, 1, pokemon[1]);
-game.party.splice(1, 1, pokemon[4]);
-game.party.splice(2, 1, pokemon[7]);
-game.party.splice(3, 1, pokemon[25]);
-
+game.party.splice(1, 1, pokemon[4]); 
 
 /*
 Exercise 8
@@ -131,6 +124,7 @@ Solve Exercise 9 here:
 if (pokemon.id===1 || pokemon.id===4 || pokemon.id===7 || pokemon.id===25) {
 ;
 }
+console.log(pokemonid);
 /*
 Exercise 10
 Create a method called `catchPokemon` and add it to the `game` object. You should not need to edit the original game object directly. This method should:
@@ -144,7 +138,6 @@ Solve Exercise 10 here:
 */
 game.catchPokemon = function(pokemonObj) {
   this.party.push(pokemonObj);
-  game.catchPokemon(pokemon[3]); 
 
 };
 
@@ -168,13 +161,7 @@ game.catchPokemon = function(pokemonObj) {
   let pokeball = this.items.find(item => item.name === "pokeball");
   if (pokeball) {
     pokeball.quantity = (pokeball.quantity) - 1;
-    const Bulbasaur={
-      id: 1,
-      name: "Bulbasaur",
-      type: "Grass/Poison",
-      hp: 45,
-      starter: true
-    }
+  
 
   }
 };
@@ -227,11 +214,13 @@ For example, if five gym objects have a value of `true` on their `completed` pro
 
 Solve Exercise 13 here:
 */
-const gymeTally= {
-  completed: 0,
-  incomplete: 0
-};
-
+game.gymStatus = () => {
+  let gymTally = {
+     completed: 0, 
+     incomplete: 0 
+  }
+  // Fill in the rest of the function here
+}
 /*
 Exercise 14
 1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
